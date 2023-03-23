@@ -2,7 +2,12 @@ import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import styles from './page.module.css'
 // add bootstrap css 
-import 'bootstrap/dist/css/bootstrap.css'
+// import 'bootstrap/dist/css/bootstrap.css'
+import 'src/app/assets/bootstrap/css/bootstrap.min.css'
+
+import '@fortawesome/fontawesome-free/css/solid.css'
+import '@fortawesome/fontawesome-free/css/regular.css'
+import '@fortawesome/fontawesome-free/css/fontawesome.css'
 
 const inter = Inter({ subsets: ['latin'] })
 
