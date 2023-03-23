@@ -1,5 +1,8 @@
 import type { FC } from 'react';
 import MenuItem from './MenuItem';
+import Link from 'next/link';
+
+
 
 interface HeaderProps {}
 
@@ -7,10 +10,10 @@ const Header: FC<HeaderProps> = ({}) => {
         return (  <header>
             <nav className="navbar navbar-dark navbar-expand-md bg-primary shadow-sm">
               <div className="container-fluid">
-                <a className="navbar-brand d-flex align-items-center gap-1" href="#">
+                <Link className="navbar-brand d-flex align-items-center gap-1" href="/">
                   <i className="fas fa-film" />
                   <strong>ReelQuest</strong>
-                </a>
+                </Link>
                 <button
                   data-bs-toggle="collapse"
                   className="navbar-toggler"
@@ -21,8 +24,8 @@ const Header: FC<HeaderProps> = ({}) => {
                 </button>
                 <div className="collapse navbar-collapse" id="navcol-1">
                   <ul className="navbar-nav fw-bold">
-                    <MenuItem title={'Trending'} address={'/'} />
-                    <MenuItem title={'Top Rated'} address={'/top-rated'} />
+                    <MenuItem title={'Trending'} path={'/trending'} />
+                    <MenuItem title={'Top Rated'} path={'/top-rated'} />
                   </ul>
                   <div className="ms-auto">
                     <div className="input-group">
