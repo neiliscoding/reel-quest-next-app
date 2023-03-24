@@ -1,6 +1,7 @@
 import type { FC } from 'react';
 import MenuItem from './MenuItem';
 import Link from 'next/link';
+import SearchBox from './SearchBox';
 
 
 
@@ -28,7 +29,8 @@ const Header: FC<HeaderProps> = ({}) => {
                     <MenuItem title={'Top Rated'} path={'/top-rated'} />
                   </ul>
                   <div className="ms-auto">
-                    <div className="input-group">
+                    <SearchBox></SearchBox>
+                   {/*  <div className="input-group">
                       <input
                         className="form-control"
                         type="text"
@@ -43,7 +45,7 @@ const Header: FC<HeaderProps> = ({}) => {
                       >
                         <i className="fas fa-search" />
                       </button>
-                    </div>
+                    </div> */}
                   </div>
                 </div>
               </div>
