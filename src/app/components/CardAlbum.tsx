@@ -9,6 +9,7 @@ interface CardAlbumProps {
 interface Movie {
     adult: boolean;
     backdrop_path: string;
+    first_air_date: string;
     genre_ids: number[];
     id: number;
     name: string;
@@ -42,13 +43,13 @@ const CardAlbum: FC<CardAlbumProps> = ({ results }) => {
                                     <img src={`https://image.tmdb.org/t/p/original/${result.backdrop_path || result.poster_path}`} alt='backdrop' width="100%" height="225" />
                                 </Link> */}
                                 <div className="card-body">
-                                    <h4>{result.original_title || result.title || result.name}</h4>
-                                    <p className="card-text">
+                                    <h5>{result.original_title || result.title || result.name}</h5>
+                                    <p className="card-text text-truncate fs-6">
                                         {result.overview}
                                     </p>
                                     <div className="d-flex justify-content-between align-items-center">
                                         <small className="text-muted">
-                                            {result.release_date}
+                                            {result.release_date || result.first_air_date }
                                             <i className="far fa-calendar-alt ms-xl-1" />
                                         </small>
                                         <small className="text-muted">
