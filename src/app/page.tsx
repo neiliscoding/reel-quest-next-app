@@ -35,6 +35,8 @@ export default async function Home({searchParams = {}}: HomeProps) {
 
   console.log(data.results);
 
+  // data.results.shift(); // for whatever reason, the first result is empty
+
   return (
 <>
 <CardAlbum results={data.results} />
