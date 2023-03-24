@@ -1,5 +1,6 @@
 import './globals.css'
 import Header from './components/Header'
+import CardAlbum from './components/CardAlbum'
 
 export const metadata = {
   title: 'Create Next App',
@@ -15,6 +16,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <Header />
+        <CardAlbum />
         {children}</body>
     </html>
   )
