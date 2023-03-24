@@ -23,7 +23,7 @@ export default async function Home({searchParams}) {
   const genre = searchParams.genre || 'fetchTrending';
   // const res = await fetch( `https://api.themoviedb.org/3/trending/all/day?api_key=${API_KEY}`);
 const queryString = `https://api.themoviedb.org/3/${genre === 
-'/top-rated' ? 'movie/top_rated' : 'trending/all/week'}?api_key=${API_KEY}`
+'top-rated' ? 'movie/top_rated' : 'trending/all/week'}?api_key=${API_KEY}`
 
   const res = await fetch(queryString ,
   {next: {revalidate: 10000}});
