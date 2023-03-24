@@ -9,6 +9,8 @@ import '@fortawesome/fontawesome-free/css/solid.css'
 import '@fortawesome/fontawesome-free/css/regular.css'
 import '@fortawesome/fontawesome-free/css/fontawesome.css'
 
+import CardAlbum from './components/CardAlbum'
+
 const API_KEY = process.env.API_KEY;
 
 interface HomeProps {
@@ -24,11 +26,18 @@ export default async function Home({searchParams = {}}: HomeProps) {
   'fetchTopRated' ? 'movie/top_rated' : 'trending/all/week'}?api_key=${API_KEY}`,
   {next: {revalidate: 10000}});
 
-  const data = await res.json();
+  if (!res.ok) {
+    throw new Error('Failed to fetch data');
+  }
 
-  console.log(data);
+  const data = await res.json();
+  
+
+  console.log(data.results);
+
   return (
 <>
+<CardAlbum results={data.results} />
   <footer className="text-muted py-5">
     <div className="container">
       <p className="float-end mb-1">
