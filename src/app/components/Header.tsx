@@ -3,8 +3,6 @@ import MenuItem from './MenuItem';
 import Link from 'next/link';
 import SearchBox from './SearchBox';
 
-
-
 interface HeaderProps {}
 
 const Header: FC<HeaderProps> = ({}) => {

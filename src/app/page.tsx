@@ -13,13 +13,13 @@ import CardAlbum from './components/CardAlbum'
 
 const API_KEY = process.env.API_KEY;
 
-// interface HomeProps {
-//   searchParams?: {
-//     genre?: string;
-//   };
-// }
+interface HomeProps {
+  searchParams?: {
+    genre?: string;
+  };
+}
 
-export default async function Home({searchParams}) {
+export default async function Home({ searchParams = {}}: HomeProps) {
   const genre = searchParams.genre || 'fetchTrending';
   // const res = await fetch( `https://api.themoviedb.org/3/trending/all/day?api_key=${API_KEY}`);
 const queryString = `https://api.themoviedb.org/3/${genre === 
@@ -41,8 +41,6 @@ const queryString = `https://api.themoviedb.org/3/${genre ===
 
   return (
 <>
-{/* <p>{searchParams.genre}</p>
-<p>{queryString}</p> */}
 <CardAlbum results={data.results} />
   <footer className="text-muted py-5">
     <div className="container">
