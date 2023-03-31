@@ -11,7 +11,7 @@ interface pageProps {
 
 export default async function MoviePage(params: pageProps) {
   console.log(params);
-  
+
   const movieId = params.params.id;
   const url = `https://api.themoviedb.org/3/movie/${movieId}?api_key=${API_KEY}`;
   console.log(url);
@@ -23,30 +23,17 @@ export default async function MoviePage(params: pageProps) {
     throw new Error('Failed to fetch data');
   }
 
-  const data = await res.json();
-  
-  console.log('data ' + data);
+  const result = await res.json();
+
+  console.log('result ' + result);
 
 
-/*   fetch(url)
-    .then(response => response.json())
-    .then(data => {
-      movie = data;
-      console.log(movie);
-      // return (<div>{movie}</div>);
-    })
-    .catch(error => {
-      console.error(error);
-      // return (<div>error</div>);
-    });
-   */
+  return (<main>
+    <div className="bg-light py-5">
+      <div className="container">
+        <h2>{result.original_title}</h2>
+        <h6>{result.overview}</h6>
+        <img className="img-fluid rounded"  src={`https://image.tmdb.org/t/p/original/${result.backdrop_path || result.poster_path}`} alt='backdrop'  />
+        </div></div></main>);
 
-          return (<div>
-            <h2>{data.original_title}</h2><h3>{data.overview}</h3></div>);
-
-    // return (<div>nothing</div>);
-  // return (<div>{
-  //     movie? ( <div>{movie}</div>) : (<div>Loading...</div>)
-  //   }</div>);
 }
-// export default page;

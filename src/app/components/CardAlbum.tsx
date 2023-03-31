@@ -30,7 +30,7 @@ const CardAlbum: FC<CardAlbumProps> = ({ results }) => {
     console.log(results);
 
     return (<main>
-        <div className="bg-light album py-5">
+        <div className="bg-light py-5">
             <div className="container">
                 <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
                     {results.map((result) => (
@@ -42,7 +42,10 @@ const CardAlbum: FC<CardAlbumProps> = ({ results }) => {
                                     {/* <img src={`https://image.tmdb.org/t/p/original/${result.backdrop_path || result.poster_path}`} alt='backdrop' width="100%" height="225" /> */}
 
                                     <Link href={`/movie/${result.id}`}>
-                                        <img src={`https://image.tmdb.org/t/p/original/${result.backdrop_path || result.poster_path}`} alt='backdrop' width="100%" height="225" />
+                                        <img 
+                                        className='img-fluid rounded-top'
+                                        src={`https://image.tmdb.org/t/p/original/${result.backdrop_path || result.poster_path}`} 
+                                        alt='backdrop'/>
                                     </Link>
                                     <div className="card-body">
                                         <h5>{result.original_title || result.title || result.name}</h5>
