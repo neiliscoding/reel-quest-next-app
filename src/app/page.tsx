@@ -34,6 +34,10 @@ const queryString = `https://api.themoviedb.org/3/${genre ===
 
   const data = await res.json();
   
+  // const results = data.results.slice(0, 18);
+  const results = (genre ===  'top-rated' || genre === 'trending' 
+  ? data.results.slice(0, 18) : data.results) ;
+
 
   console.log(data.results);
 
@@ -41,7 +45,7 @@ const queryString = `https://api.themoviedb.org/3/${genre ===
 
   return (
 <>
-<CardAlbum results={data.results} />
+<CardAlbum results={results} />
   <footer className="text-muted py-5">
     <div className="container">
       <p className="float-end mb-1">
