@@ -9,9 +9,13 @@ export default searchPage; */
 
 import CardAlbum from "@/app/components/CardAlbum";
 
+interface pageProps {
+  params: {
+    searchTerm: string;
+  };
+}
 
-
-export default async function SearchPage({params}) {
+export default async function SearchPage({ params = { searchTerm : ''} }: pageProps) {
   const res = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=${process.env.API_KEY}&query=${params.searchTerm}&language=en-US&page=1&`);
  
   if (!res.ok) {
