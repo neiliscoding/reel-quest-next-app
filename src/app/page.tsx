@@ -19,24 +19,24 @@ interface HomeProps {
   };
 }
 
-export default async function Home({ searchParams = {}}: HomeProps) {
+export default async function Home({ searchParams = {} }: HomeProps) {
   const genre = searchParams.genre || 'fetchTrending';
   // const res = await fetch( `https://api.themoviedb.org/3/trending/all/day?api_key=${API_KEY}`);
-const queryString = `https://api.themoviedb.org/3/${genre === 
-'top-rated' ? 'movie/top_rated' : 'trending/movie/week'}?api_key=${API_KEY}`
+  const queryString = `https://api.themoviedb.org/3/${genre ===
+    'top-rated' ? 'movie/top_rated' : 'trending/movie/week'}?api_key=${API_KEY}`
 
-  const res = await fetch(queryString ,
-  {next: {revalidate: 10000}});
+  const res = await fetch(queryString,
+    { next: { revalidate: 10000 } });
 
   if (!res.ok) {
     throw new Error('Failed to fetch data');
   }
 
   const data = await res.json();
-  
+
   // const results = data.results.slice(0, 18);
-  const results = (genre ===  'top-rated' || genre === 'trending' 
-  ? data.results.slice(0, 18) : data.results) ;
+  const results = (genre === 'top-rated' || genre === 'trending'
+    ? data.results.slice(0, 18) : data.results);
 
 
   console.log(data.results);
@@ -44,16 +44,16 @@ const queryString = `https://api.themoviedb.org/3/${genre ===
   // data.results.shift(); // for whatever reason, the first result is empty
 
   return (
-<>
-<CardAlbum results={results} />
-  <footer className="text-muted py-5">
-    <div className="container">
-      <p className="float-end mb-1">
-        <a href="#">Back to top</a>
-      </p>
-      <p className="mb-1">That's all folks!</p>
-    </div>
-  </footer>
-</>
+    <>
+      <CardAlbum results={results} />
+      <footer className="text-muted py-5">
+        <div className="container">
+          <p className="float-end mb-1">
+            <a href="#">Back to top</a>
+          </p>
+          <p className="mb-1">That's all folks!</p>
+        </div>
+      </footer>
+    </>
   )
 }

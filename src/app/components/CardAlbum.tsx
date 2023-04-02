@@ -26,6 +26,12 @@ interface Movie {
     popularity: number;
 }
 
+function ratingToPercentage(rating: number): string {
+    const maxRating = 10;
+    const percentage = (rating / maxRating) * 100;
+    return percentage.toFixed(1);
+}
+
 const CardAlbum: FC<CardAlbumProps> = ({ results }) => {
     console.log(results);
 
@@ -39,29 +45,29 @@ const CardAlbum: FC<CardAlbumProps> = ({ results }) => {
                             <div className="col">
 
                                 <div className="card shadow-sm">
-                                    {/* <img src={`https://image.tmdb.org/t/p/original/${result.backdrop_path || result.poster_path}`} alt='backdrop' width="100%" height="225" /> */}
 
-                                    <Link href={`/movie/${result.id}`}>
-                                        <img 
-                                        className='img-fluid rounded-top'
-                                        src={`https://image.tmdb.org/t/p/original/${result.backdrop_path || result.poster_path}`} 
-                                        alt='backdrop'/>
+                                    <Link href={`/movie/${result.id}`} className='stretched-link'>
+                                        <img
+                                            className='img-fluid rounded-top'
+                                            src={`https://image.tmdb.org/t/p/original/${result.backdrop_path || result.poster_path}`}
+                                            alt='backdrop' />
                                     </Link>
                                     <div className="card-body">
                                         <h5>{result.original_title || result.title || result.name}</h5>
                                         <p className="card-text text-truncate fs-6">
                                             {result.overview}
                                         </p>
-                                        <div className="d-flex justify-content-between align-items-center">
-                                            <small className="text-muted">
-                                                {result.release_date || result.first_air_date}
-                                                <i className="far fa-calendar-alt ms-xl-1" />
-                                            </small>
-                                            <small className="text-muted">
-                                                {result.popularity}
-                                                <i className="far fa-heart text-secondary ms-xl-1" />
-                                            </small>
-                                        </div>
+
+                                    </div>
+                                    <div className="card-footer d-flex justify-content-between align-items-center">
+                                        <small className="text-muted">
+                                            {result.release_date || result.first_air_date}
+                                            <i className="far fa-calendar-alt ms-xl-1" />
+                                        </small>
+                                        <small className="text-muted">
+                                            {ratingToPercentage(result.vote_average)}
+                                            <i className="far fa-percent ms-xl-1" />
+                                        </small>
                                     </div>
                                 </div>
                             </div>
