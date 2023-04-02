@@ -41,7 +41,7 @@ export default async function Home({ searchParams = {} }: HomeProps) {
     ? data.results.slice(0, 18) : data.results);
 
 
-  console.log(data.results);
+  // console.log(data.results);
 
   // data.results.shift(); // for whatever reason, the first result is empty
 

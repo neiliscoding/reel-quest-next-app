@@ -17,11 +17,11 @@ function ratingToPercentage(rating: number): string {
 
 
 export default async function MoviePage(params: pageProps) {
-  console.log(params);
+  // console.log(params);
 
   const movieId = params.params.id;
   const url = `https://api.themoviedb.org/3/movie/${movieId}?api_key=${API_KEY}`;
-  console.log(url);
+  // console.log(url);
   let movie;
 
   const res = await fetch(url);
@@ -32,7 +32,7 @@ export default async function MoviePage(params: pageProps) {
 
   const result = await res.json();
 
-  console.log('result ' + result);
+  // console.log('result ' + result);
 
 
   return (<main>

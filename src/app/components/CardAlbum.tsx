@@ -33,7 +33,7 @@ function ratingToPercentage(rating: number): string {
 }
 
 const CardAlbum: FC<CardAlbumProps> = ({ results }) => {
-    console.log(results);
+    // console.log(results);
 
     return (<main>
         <div className="bg-light py-5">
@@ -42,7 +42,7 @@ const CardAlbum: FC<CardAlbumProps> = ({ results }) => {
                     {results.map((result) => (
 
                         (result.backdrop_path || result.poster_path) && (
-                            <div className="col">
+                            <div key={result.id}  className="col">
 
                                 <div className="card shadow-sm">
 
