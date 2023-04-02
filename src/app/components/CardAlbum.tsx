@@ -47,10 +47,11 @@ const CardAlbum: FC<CardAlbumProps> = ({ results }) => {
                                 <div className="card shadow-sm">
 
                                     <Link href={`/movie/${result.id}`} className='stretched-link'>
-                                        <img
+                                        <Image className='img-fluid rounded-top' src={`https://image.tmdb.org/t/p/original/${result.backdrop_path || result.poster_path}`} alt='backdrop' width={420} height={214} />
+                                        {/* <img
                                             className='img-fluid rounded-top'
                                             src={`https://image.tmdb.org/t/p/original/${result.backdrop_path || result.poster_path}`}
-                                            alt='backdrop' />
+                                            alt='backdrop' /> */}
                                     </Link>
                                     <div className="card-body">
                                         <h5>{result.original_title || result.title || result.name}</h5>

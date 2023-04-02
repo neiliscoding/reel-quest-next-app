@@ -41,15 +41,19 @@ export default async function MoviePage(params: pageProps) {
         <div className="card">
           <img className="img-fluid rounded-top" src={`https://image.tmdb.org/t/p/original/${result.backdrop_path || result.poster_path}`} alt='backdrop' />
           <div className="card-img-overlay">
-            <h5 className="card-title text-light">{result.original_title}</h5>
-
-            <p className="card-text text-light">
+            <h2 className="card-title text-light display-1">
               {ratingToPercentage(result.vote_average)}
               <i className="far fa-percent ms-xl-1" />
-            </p>
+            </h2>
+
+            {/* <h5 className="card-text text-light">
+              {result.vote_count}
+              <i className="far fa-eye ms-xl-1" />
+            </h5> */}
 
           </div>
           <div className="card-body">
+            <h5>{result.original_title || result.title || result.name}</h5>
             <p className="card-text">{result.overview}</p>
           </div>
           <div className="card-footer d-flex justify-content-between align-items-center">
