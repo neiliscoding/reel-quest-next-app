@@ -51,7 +51,7 @@ export default async function Home({ searchParams = {} }: HomeProps) {
           <p className="float-end mb-1">
             <a href="#">Back to top</a>
           </p>
-          <p className="mb-1">That's all folks!</p>
+          <p className="mb-1">Nextjs Demo project by <a href='https://neil.bss.design/'>Neil</a></p>
         </div>
       </footer>
     </>

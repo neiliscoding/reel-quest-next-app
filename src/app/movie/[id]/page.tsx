@@ -9,8 +9,6 @@ interface pageProps {
   searchParams: {};
 }
 
-
-
 function ratingToPercentage(rating: number): string {
   const maxRating = 10;
   const percentage = (rating / maxRating) * 100;
@@ -53,22 +51,20 @@ export default async function MoviePage(params: pageProps) {
             <p className="card-text">{result.overview}</p>
           </div>
           <div className="card-footer d-flex justify-content-between align-items-center">
-                                        <small className="text-muted">
-                                            {result.release_date || result.first_air_date}
-                                            <i className="far fa-calendar-alt ms-xl-1" />
-                                        </small>
-                                        <small className="text-muted">
-                                            {result.vote_count}
-                                            <i className="far fa-eye ms-xl-1" />
-                                        </small>
-                                        <small className="text-muted">
-                                            {ratingToPercentage(result.vote_average)}
-                                            <i className="far fa-percent ms-xl-1" />
-                                        </small>
-                                    </div>
+            <small className="text-muted">
+              {result.release_date || result.first_air_date}
+              <i className="far fa-calendar-alt ms-xl-1" />
+            </small>
+            <small className="text-muted">
+              {result.vote_count}
+              <i className="far fa-eye ms-xl-1" />
+            </small>
+            <small className="text-muted">
+              {ratingToPercentage(result.vote_average)}
+              <i className="far fa-percent ms-xl-1" />
+            </small>
+          </div>
         </div>
-
-
       </div>
     </div>
   </main>);
